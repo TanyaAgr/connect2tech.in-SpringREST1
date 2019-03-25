@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.c2t.annotation.basic.Employee;
+import com.c2t.annotation.basic.Employee2;
 import com.c2t.annotation.basic.EmployeeVO;
 
 @Repository
@@ -88,12 +89,22 @@ public class EmpDaoImp implements EmpDao {
 		ses.beginTransaction();
 		Employee emp=new Employee();
 		emp.setId(9999l);
-		emp.setFirstname("man");
-		emp.setLastname("kish");
+		emp.setFirstname("uuu");
+		emp.setLastname("kpppp");
 		emp.setBirthDate(new java.sql.Date(1996, 06, 23));
 		emp.setCellphone("8765432");
 		empData.put(9999, emp);
+		
+		Employee2 emp2=new Employee2();
+		emp2.setId(9999l);
+		emp2.setFirstname("ragu");
+		emp2.setLastname("jan");
+		emp2.setBirthDate(new java.sql.Date(1996, 06, 23));
+		emp2.setCellphone("4000002");
+		empData.put(1111, emp);
+		
 		ses.save(emp);
+		ses.save(emp2);
 		ses.getTransaction().commit();
 		ses.close();
 		
